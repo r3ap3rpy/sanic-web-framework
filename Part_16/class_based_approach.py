@@ -2,7 +2,7 @@ import sanic
 
 app = sanic.Sanic()
 
-@app.route("/")
+@app.route("/", methods=['GET','POST'])
 async def index(request):
 	return sanic.response.redirect(app.url_for('ViewDemo'))
 
