@@ -16,7 +16,7 @@ async def abort_error_code(request, error_code):
 
 @app.exception(sanic.exceptions.NotFound)
 async def ignore_404(request, exception):
-	return sanic.reponse.text("Oh no, the page you are looking for: {} does not exsist!".format(request.url))
+	raise sanic.exceptions.NotFound("Oh no, the page you are looking for: {} does not exsist!".format(request.path))
 
 if __name__ == '__main__':
 	app.run(host = '0.0.0.0', port = 8080)
